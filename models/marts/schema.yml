@@ -1,0 +1,57 @@
+version: 2
+
+models:
+  - name: fct_orders
+    description: "Order facts enriched with customer and product details. Incremental on order_id."
+    data_tests:
+      - dbt_utils.expression_is_true:
+          arguments:
+            expression: "quantity > 0"
+    columns:
+      - name: order_line_key
+        description: "Surrogate key built from order_id and product_id."
+        data_tests:
+          - unique
+          - not_null
+      - name: order_id
+        data_tests:
+          - unique
+          - not_null
+      - name: net_amount
+        description: "{{ doc('net_amount') }}"
+        data_tests:
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+                inclusive: false
+      - name: tier
+        description: "{{ doc('customer_tier') }}"
+
+  - name: mart_monthly_revenue
+    description: "Net revenue and volume per calendar month."
+    columns:
+      - name: order_month
+        data_tests:
+          - unique
+          - not_null
+
+  - name: mart_category_performance
+    description: "Revenue, cost and margin % per product category."
+    columns:
+      - name: category
+        data_tests:
+          - unique
+          - not_null
+      - name: margin_pct
+        description: "{{ doc('margin_pct') }}"
+
+  - name: mart_revenue_by_customer_tier
+    description: "Revenue and margin % per customer tier."
+    columns:
+      - name: tier
+        description: "{{ doc('customer_tier') }}"
+        data_tests:
+          - unique
+          - not_null
+      - name: margin_pct
+        description: "{{ doc('margin_pct') }}"

@@ -1,0 +1,11 @@
+customer_id,customer_name,email,region,tier,updated_at
+1,Thabo Mokoena,thabo.mokoena@example.com,Gauteng,gold,2026-01-01 08:00:00
+2,Lerato Dlamini,lerato.dlamini@example.com,Western Cape,silver,2026-01-01 08:00:00
+3,Sipho Nkosi,sipho.nkosi@example.com,KwaZulu-Natal,bronze,2026-01-01 08:00:00
+4,Ayesha Patel,ayesha.patel@example.com,Gauteng,silver,2026-01-01 08:00:00
+5,Michael Smith,michael.smith@example.com,Western Cape,bronze,2026-01-01 08:00:00
+6,Naledi Khumalo,naledi.khumalo@example.com,Eastern Cape,gold,2026-01-01 08:00:00
+7,Pieter van Wyk,pieter.vanwyk@example.com,Gauteng,bronze,2026-01-01 08:00:00
+8,Zanele Zulu,zanele.zulu@example.com,KwaZulu-Natal,silver,2026-01-01 08:00:00
+9,Johan Botha,johan.botha@example.com,Western Cape,gold,2026-01-01 08:00:00
+10,Busisiwe Ndlovu,busisiwe.ndlovu@example.com,Gauteng,bronze,2026-01-01 08:00:00

@@ -1,0 +1,16 @@
+version: 2
+
+exposures:
+  - name: revenue_dashboard
+    label: Revenue Dashboard
+    type: dashboard
+    maturity: low
+    url: http://localhost:8501
+    description: "Dashboard showing monthly revenue, category margins and tier performance."
+    depends_on:
+      - ref('mart_monthly_revenue')
+      - ref('mart_category_performance')
+      - ref('mart_revenue_by_customer_tier')
+    owner:
+      name: Wandile Mbokazi
+      email: wandilembokazi42@gmail.com

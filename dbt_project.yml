@@ -1,0 +1,44 @@
+name: 'sales_analytics_12'
+version: '1.0.0'
+config-version: 2
+
+profile: 'sales_analytics_12'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  sales_analytics_12:
+    staging:
+      +materialized: view
+      +schema: staging
+      +tags: ['staging']
+    marts:
+      +materialized: table
+      +schema: marts
+      +tags: ['marts']
+
+seeds:
+  sales_analytics_12:
+    +schema: raw
+    +tags: ['raw']
+    raw_customers:
+      +column_types:
+        customer_id: integer
+        updated_at: timestamp
+    raw_products:
+      +column_types:
+        product_id: integer
+    raw_orders:
+      +column_types:
+        order_id: integer
+        customer_id: integer
+        product_id: integer

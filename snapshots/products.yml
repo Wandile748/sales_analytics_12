@@ -1,0 +1,10 @@
+snapshots:
+  - name: products_snapshot
+    relation: source('raw', 'raw_products')
+    config:
+      schema: snapshots
+      unique_key: product_id
+      strategy: check
+      check_cols:
+        - list_price
+        - cost_price
